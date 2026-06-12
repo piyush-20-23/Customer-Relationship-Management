@@ -2,18 +2,23 @@ package com.CRM.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table
+@Table(name = "customers")
 public class Customer {
 	
 	public Customer() {
 	}
 
+
+
 	@Id
 	@Column(name = "cust_id")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	
 	@Column(name = "first_name")
@@ -63,5 +68,12 @@ public class Customer {
 		this.phoneNumber = phoneNumber;
 	}
 
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
 	
 }
